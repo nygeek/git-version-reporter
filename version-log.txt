@@ -1,0 +1,10 @@
+#
+# This is the version log for this system.
+# To create a new version append a new line to the END of this file
+#
+# It should contain two tokens - one a version string (e.g. v1.0) and
+# the second a version description (e.g. "Version 1.0 2020-04-24 mdd")
+# the two tokens should be separated by a vertical bar (|) character
+#
+
+v1.0|"Version 1.0 2020-04-24 mdd"
