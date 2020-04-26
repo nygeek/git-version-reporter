@@ -13,12 +13,28 @@
 # Copyright (C) 2020 Marc Donner
 #
 
-FILES := Makefile
+LOG := ./version-log.txt
+FILES := Makefile 
 
-.PHONY: help commit
+VERSION := $(shell tail -1 $(LOG) | cut -f 1 -d \|)
+DESCRIPTION := $(shell tail -1 $(LOG) | cut -f 2 -d \|)
+
+.PHONY: help commit version tag description describe
 
 help:
 	cat Makefile
 
 commit:
 	git commit
+
+version:
+	echo ${VERSION}
+
+description:
+	echo ${DESCRIPTION}
+
+retag: ${LOG}
+	git tag -a ${VERSION} -m ${DESCRIPTION}
+
+describe:
+	git describe --always --tags --long
