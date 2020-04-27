@@ -14,15 +14,18 @@
 #
 
 LOG := ./version-log.txt
-FILES := Makefile 
+FILES := Makefile version-reporter.py
 
 VERSION := $(shell tail -1 $(LOG) | cut -f 1 -d \|)
 DESCRIPTION := $(shell tail -1 $(LOG) | cut -f 2 -d \|)
 
-.PHONY: help commit version tag description describe
+.PHONY: help commit version tag description describe test
 
 help:
 	cat Makefile
+
+test:
+	python3 version-reporter.py
 
 commit:
 	git commit
