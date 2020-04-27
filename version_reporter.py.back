@@ -7,6 +7,10 @@
         """ Return the value of VERSION """
         return self.VERSION
 
+    def get_versiontag(self):
+        """ Return the value of VERSIONTAG """
+        return self.VERSIONTAG
+
     def get_description(self):
         """ Return the value of DESCRIPTION """
         return self.DESCRIPTION
@@ -18,6 +22,8 @@ def main():
             str(version_reporter.get_version()))
     print("version_reporter.get_description(): " + \
             str(version_reporter.get_description()))
+    print("version_reporter.get_versiontag(): " + \
+            str(version_reporter.get_versiontag()))
 
 if __name__ == '__main__':
     main()

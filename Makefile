@@ -22,8 +22,9 @@ FILES := \
 
 VERSION := $(shell tail -1 $(LOG) | cut -f 1 -d \|)
 DESCRIPTION := $(shell tail -1 $(LOG) | cut -f 2 -d \|)
+VERSIONTAG := $(shell git describe --always --tags --long)
 
-.PHONY: help commit version tag description describe test
+.PHONY: help commit description tag test version versiontag
 
 help:
 	cat Makefile
@@ -47,13 +48,14 @@ description:
 retag: ${LOG}
 	git tag -a ${VERSION} -m ${DESCRIPTION}
 
-describe:
-	git describe --always --tags --long
+versiontag:
+	echo ${VERSIONTAG}
 
 version_reporter.py: version_reporter.py.front version_reporter.py.back
 	cat version_reporter.py.front > working.py
 	echo "    VERSION = '"${VERSION}"'" >> working.py
 	echo "    DESCRIPTION = '"${DESCRIPTION}"'" >> working.py
+	echo "    VERSIONTAG = '"${VERSIONTAG}"'" >> working.py
 	cat version_reporter.py.back >> working.py
 	mv working.py version_reporter.py
 

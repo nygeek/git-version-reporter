@@ -18,6 +18,7 @@ class VersionReporter(object):
 
     VERSION = 'v1.2'
     DESCRIPTION = 'Version 1.2 2020-04-27 mdd - automatically created'
+    VERSIONTAG = 'v1.2-1-gb3640ec'
 
     def __init__(self, debug):
         """ initialize the class """
@@ -26,6 +27,10 @@ class VersionReporter(object):
     def get_version(self):
         """ Return the value of VERSION """
         return self.VERSION
+
+    def get_versiontag(self):
+        """ Return the value of VERSIONTAG """
+        return self.VERSIONTAG
 
     def get_description(self):
         """ Return the value of DESCRIPTION """
@@ -38,6 +43,8 @@ def main():
             str(version_reporter.get_version()))
     print("version_reporter.get_description(): " + \
             str(version_reporter.get_description()))
+    print("version_reporter.get_versiontag(): " + \
+            str(version_reporter.get_versiontag()))
 
 if __name__ == '__main__':
     main()
