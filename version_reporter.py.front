@@ -1,0 +1,18 @@
+#! /usr/bin/python3
+""" Version Reporter - a class to provide version identity reporting for
+    Python programs that is integerated with git.
+
+Started 2020-04-24 by Marc Donner
+
+Copyright (C) 2020 Marc Donner
+
+"""
+
+# This keeps pylint from bitching about the python3 print() calls.
+from __future__ import print_function
+
+class VersionReporter(object):
+    """ Report version and description for version for git python
+        projects.
+    """
+

@@ -14,7 +14,11 @@
 #
 
 LOG := ./version-log.txt
-FILES := Makefile version_reporter.py
+FILES := \
+	Makefile \
+	version_reporter.py \
+       	version_reporter.py.front \
+       	version_reporter.py.back
 
 VERSION := $(shell tail -1 $(LOG) | cut -f 1 -d \|)
 DESCRIPTION := $(shell tail -1 $(LOG) | cut -f 2 -d \|)
@@ -30,7 +34,8 @@ test:
 pylint:
 	- pylint version_reporter.py
 
-commit:
+commit: ${FILES}
+	git add $?
 	git commit
 
 version:
@@ -44,3 +49,5 @@ retag: ${LOG}
 
 describe:
 	git describe --always --tags --long
+
+version_reporter.py: 

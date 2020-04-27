@@ -1,0 +1,23 @@
+
+    def __init__(self, debug):
+        """ initialize the class """
+        self.debug = debug
+
+    def get_version(self):
+        """ Return the value of VERSION """
+        return self.VERSION
+
+    def get_description(self):
+        """ Return the value of DESCRIPTION """
+        return self.DESCRIPTION
+
+def main():
+    """Main"""
+    version_reporter = VersionReporter(False)
+    print("version_reporter.get_version(): " + \
+            str(version_reporter.get_version()))
+    print("version_reporter.get_description(): " + \
+            str(version_reporter.get_description()))
+
+if __name__ == '__main__':
+    main()
