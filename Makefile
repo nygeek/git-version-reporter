@@ -14,7 +14,7 @@
 #
 
 LOG := ./version-log.txt
-FILES := Makefile version-reporter.py
+FILES := Makefile version_reporter.py
 
 VERSION := $(shell tail -1 $(LOG) | cut -f 1 -d \|)
 DESCRIPTION := $(shell tail -1 $(LOG) | cut -f 2 -d \|)
@@ -25,7 +25,10 @@ help:
 	cat Makefile
 
 test:
-	python3 version-reporter.py
+	python3 version_reporter.py
+
+pylint:
+	- pylint version_reporter.py
 
 commit:
 	git commit
