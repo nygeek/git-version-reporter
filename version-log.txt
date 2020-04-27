@@ -9,3 +9,4 @@
 
 v1.0|"Version 1.0 2020-04-24 mdd"
 v1.1|"Version 1.1 2020-04-24 mdd - first version bump"
+v1.2|"Version 1.2 2020-04-27 mdd - automatically created"
