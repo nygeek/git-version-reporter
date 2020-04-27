@@ -16,8 +16,8 @@ class VersionReporter(object):
         projects.
     """
 
-    VERSION = "1.1"
-    DESCRIPTION = "Version 1.1 2020-04-24 mdd - first version bump"
+    VERSION = 'v1.2'
+    DESCRIPTION = 'Version 1.2 2020-04-27 mdd - automatically created'
 
     def __init__(self, debug):
         """ initialize the class """

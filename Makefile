@@ -50,4 +50,10 @@ retag: ${LOG}
 describe:
 	git describe --always --tags --long
 
-version_reporter.py: 
+version_reporter.py: version_reporter.py.front version_reporter.py.back
+	cat version_reporter.py.front > working.py
+	echo "    VERSION = '"${VERSION}"'" >> working.py
+	echo "    DESCRIPTION = '"${DESCRIPTION}"'" >> working.py
+	cat version_reporter.py.back >> working.py
+	mv working.py version_reporter.py
+
