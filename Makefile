@@ -13,6 +13,21 @@
 # Copyright (C) 2020 Marc Donner
 #
 
+# Make us OS-independent ... at least for MacOS and Linux
+OS := $(shell uname -s)
+ifeq (Linux, ${OS})
+	DATE := $(shell date --iso-8601)
+else
+	DATE := $(shell date "+%Y-%m-%d")
+endif
+
+# Python version
+PYTHON := python3
+# PYTHON := python2
+
+DIRS = "."
+DIRPATH="~/projects/g/git_version_reporter/src"
+
 LOG := ./version-log.txt
 FILES := \
 	Makefile \
@@ -28,6 +43,8 @@ VERSIONTAG := $(shell git describe --always --tags --long)
 
 help:
 	cat Makefile
+	echo "OS: " ${OS}
+	echo "DATE: " ${DATE}
 
 test:
 	python3 version_reporter.py
