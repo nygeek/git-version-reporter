@@ -47,7 +47,7 @@ help:
 	echo "DATE: " ${DATE}
 
 test:
-	python3 version_reporter.py
+	${PYTHON} version_reporter.py
 
 pylint:
 	- pylint version_reporter.py
@@ -55,6 +55,9 @@ pylint:
 commit: ${FILES}
 	git add $?
 	git commit
+
+push:
+	git push -u origin master
 
 version:
 	echo ${VERSION}
